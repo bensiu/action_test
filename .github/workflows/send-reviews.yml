@@ -1,0 +1,14 @@
+name: "Send Reviews"
+on:
+  pull_request:
+    types: [opened]
+jobs:
+  send-reviews:
+    runs-on: ubuntu-latest
+    steps:
+    - name: "Send Review Request to dev team"
+      uses: kunihiko-t/review-request-action@master
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        reviewers: "ccavalloBF,bensiu"
+        team-reviewers: ""
